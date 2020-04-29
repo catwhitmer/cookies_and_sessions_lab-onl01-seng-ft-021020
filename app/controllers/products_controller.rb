@@ -1,13 +1,11 @@
 class ProductsController < ApplicationController
-   def index
-   	@products = Product.all
-   end
+  helper_method :cart
 
-   def add
-     @product = Product.find(params[:id])
-     
-  	 cart << @product.id
+  def index
+  end
 
-   	render :index
-	end
+  def add
+    cart << params[:product]
+    render :index
+  end
 end
